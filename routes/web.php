@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HellowController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// training.test/
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Create Route Using Closure
+// training.test/hellow - 
+Route::get('/hellow', function () {
+    return 'hellow';
 });
+
+// Create Route Using Controller
+Route::get('/hellow-controller', HellowController::class);
+
+// Use return view only route
+Route::view('/', 'welcome');
+
+// Route::post('/store', function(){
+//     dd(request());
+// });
+
+Route::resource('users', UserController::class);
 
 Route::middleware([
     'auth:sanctum',
