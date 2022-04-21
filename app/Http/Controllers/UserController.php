@@ -14,9 +14,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        $users = User::all(); // select * from users
+        // dd($users);
         // calling blade view, using dot notation.
         // template engine: Twig, moustache, PowerTemplate
-        return view('users.index');
+        return view('users.index', compact('users'));
     }
 
     /**
