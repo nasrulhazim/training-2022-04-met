@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // calling blade view, using dot notation.
+        // template engine: Twig, moustache, PowerTemplate
+        return view('users.index');
     }
 
     /**
@@ -24,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**

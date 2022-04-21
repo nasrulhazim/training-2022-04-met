@@ -36,7 +36,7 @@ Route::view('/', 'welcome');
 //     dd(request());
 // });
 
-Route::resource('users', UserController::class);
+
 
 Route::middleware([
     'auth:sanctum',
@@ -46,4 +46,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::resource('users', UserController::class);
 });
