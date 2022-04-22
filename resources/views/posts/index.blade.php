@@ -13,12 +13,21 @@
                     <x-table.th>
                         Title
                     </x-table.th>
+                    <x-table.th>
+                        
+                    </x-table.th>
                 </x-slot:header>
                 @foreach ($posts as $post)
                     <tr>
                         <x-table.td>
                             {{ $post->title }}
                         </x-table.td>
+                        <x-table.td>
+                            <a href="{{ route('posts.show', $post) }}">
+                                Details
+                            </a>
+                        </x-table.td>
+
                     </tr>
                 @endforeach
                 <x-slot:footer>
