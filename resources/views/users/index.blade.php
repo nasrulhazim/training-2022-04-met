@@ -16,6 +16,9 @@
                     <x-table.th>
                         E-mail
                     </x-table.th>
+                    <x-table.th>
+                        
+                    </x-table.th>
                 </x-slot:header>
                 @foreach ($users as $user)
                     <tr>
@@ -24,6 +27,11 @@
                         </x-table.td>
                         <x-table.td>
                             {{ $user->email }}
+                        </x-table.td>
+                        <x-table.td>
+                            <a href="{{ route('users.show', $user) }}">
+                                Details
+                            </a>
                         </x-table.td>
                     </tr>
                 @endforeach
