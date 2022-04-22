@@ -14,10 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all(); // select * from users
-        // dd($users);
-        // calling blade view, using dot notation.
-        // template engine: Twig, moustache, PowerTemplate
+        $users = User::paginate(); // select * from users
+        
         return view('users.index', compact('users'));
     }
 
