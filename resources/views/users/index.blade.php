@@ -32,6 +32,9 @@
                             <a href="{{ route('users.show', $user) }}">
                                 Details
                             </a>
+                            <a href="{{ route('users.edit', $user) }}">
+                                Edit
+                            </a>
                         </x-table.td>
                     </tr>
                 @endforeach
