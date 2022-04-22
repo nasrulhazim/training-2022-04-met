@@ -28,3 +28,13 @@ users/create.blade.php
         - action
     - [ ] Inputs
     - [ ] Submit button
+
+
+php artisan make:model Post -a
+define route in routes/web.php
+create views
+create migration
+create factory
+create seeder
+seed data
+...

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HellowController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('users', UserController::class);
+    Route::resource('posts', PostController::class);
 });
