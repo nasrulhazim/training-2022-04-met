@@ -27,6 +27,9 @@
                         <x-jet-label for="password" value="{{ __('Password') }}" />
                         <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required
                             autocomplete="new-password" />
+                            @error('password')
+                            <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="mt-4">
@@ -34,6 +37,8 @@
                         <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password"
                             name="password_confirmation" required autocomplete="new-password" />
                     </div>
+
+                    {{-- <x-jet-validation-errors class="mb-4" /> --}}
 
                     <div class="flex items-center justify-end mt-4">
                         <a class="text-gray-300 hover:text-indigo-600" href="{{ route('users.index') }}">Cancel</a>
