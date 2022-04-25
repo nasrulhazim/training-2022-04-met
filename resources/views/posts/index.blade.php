@@ -23,9 +23,20 @@
                             {{ $post->title }}
                         </x-table.td>
                         <x-table.td>
-                            <a href="{{ route('posts.show', $post) }}">
-                                Details
-                            </a>
+                            <div class="inline-flex">
+                                <a href="{{ route('posts.show', $post) }}">
+                                    Details
+                                </a>
+                                <form method="POST" action="{{ route('posts.destroy', $post) }}" class="hover:text-red-600">
+                                    @csrf @method('DELETE')
+
+                                    <a class="px-4" href="#" onclick="event.preventDefault();
+                                        if(confirm('Are you sure want to delete this record?')) {
+                                            this.closest('form').submit();
+                                        }
+                                    ">Delete</a>
+                                </form>
+                            </div>
                         </x-table.td>
                     </tr>
                 @endforeach
