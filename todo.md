@@ -38,3 +38,26 @@ create factory
 create seeder
 seed data
 ...
+
+
+
+
+Create a screen
+
+- [ ] Route & Controller
+    - routes/web.php
+    - php artisan make:controller PostController --resource
+
+Create a screen for CRUD
+
+- [x] Route
+    - [x] routes/web.php -> Route::resource('posts', PostController);
+    - [x] Verify route has post routes: php artisan route:list --name=posts
+- [x] Controller
+- [x] Model
+- [x] Migration
+- [x] Factory
+- [x] Seeder
+    - php artisan db:seed --class=PostSeeder
+
+php artisan make:model Post -a

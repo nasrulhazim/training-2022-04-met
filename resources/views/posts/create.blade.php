@@ -20,8 +20,7 @@
 
                     <div class="mt-4">
                         <x-jet-label for="content" value="{{ __('Content') }}" />
-                        <x-jet-input id="content" class="block mt-1 w-full" name="content" :value="old('content')"
-                            required />
+                        <textarea id="content" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="content" required>{{ old('content') }}</textarea>
                         <x-form.error name="content" />
                     </div>
 

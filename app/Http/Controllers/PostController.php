@@ -37,7 +37,11 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $post = Post::create($request->only('title', 'content'));
+
+        session()->flash('message', 'Post successfuly created');
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
