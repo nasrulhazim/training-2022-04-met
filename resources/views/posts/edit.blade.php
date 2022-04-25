@@ -1,15 +1,37 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit') }} {{ $user->name }} {{ __('Details') }}
+            {{ __('Edit Post') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                Edit User Form...
+        <x-panel>
+            <div class="flex flex-col sm:justify-center items-center">
+                <form method="POST" action="{{ route('posts.update', $post) }}" class="w-full sm:max-w-md ">
+                    @csrf @method('PUT')
+
+                    <div>
+                        <x-jet-label for="title" value="{{ __('Title') }}" />
+                        <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', $post->title)"
+                            required autofocus  />
+                        <x-form.error name="title" />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-jet-label for="content" value="{{ __('Content') }}" />
+                        <textarea id="content" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="content" required>{{ old('content', $post->content) }}</textarea>
+                        <x-form.error name="content" />
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        <a class="text-gray-300 hover:text-indigo-600" href="{{ route('posts.index') }}">Cancel</a>
+                        <x-jet-button class="ml-4">
+                            {{ __('Update Post') }}
+                        </x-jet-button>
+                    </div>
+                </form>
             </div>
-        </div>
+        </x-panel>
     </div>
 </x-app-layout>

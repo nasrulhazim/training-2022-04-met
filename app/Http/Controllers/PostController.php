@@ -75,7 +75,11 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $post->update($request->only('title', 'content'));
+
+        session()->flash('message', 'Post successfuly updated');
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
