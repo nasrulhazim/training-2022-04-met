@@ -34,6 +34,9 @@
                                 <a href="{{ route('posts.show', $post) }}">
                                     Details
                                 </a>
+                                <a href="{{ route('posts.edit', $post) }}">
+                                    Edit
+                                </a>
                                 <form method="POST" action="{{ route('posts.destroy', $post) }}" class="hover:text-red-600">
                                     @csrf @method('DELETE')
 
