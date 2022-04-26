@@ -31,16 +31,16 @@
                         </x-table.td>
                         <x-table.td>
                             <div class="inline-flex">
-                                <a href="{{ route('posts.show', $post) }}">
+                                <a class="px-2 hover:text-indigo-600" href="{{ route('posts.show', $post) }}">
                                     Details
                                 </a>
-                                <a href="{{ route('posts.edit', $post) }}">
+                                <a class="px-2 hover:text-indigo-600" href="{{ route('posts.edit', $post) }}">
                                     Edit
                                 </a>
                                 <form method="POST" action="{{ route('posts.destroy', $post) }}" class="hover:text-red-600">
                                     @csrf @method('DELETE')
 
-                                    <a class="px-4" href="#" onclick="event.preventDefault();
+                                    <a class="px-2" href="#" onclick="event.preventDefault();
                                         if(confirm('Are you sure want to delete this record?')) {
                                             this.closest('form').submit();
                                         }
