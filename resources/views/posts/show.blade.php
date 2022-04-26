@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <x-panel>
-            {{ $post->content }}
+            {{ $post->content }} - <span class="text-red-500">Posted by {{ $post->user->name }} on {{ $post->created_at->format('l, d-m-y H:i:s') }}</span>
         </x-panel>
     </div>
 </x-app-layout>
