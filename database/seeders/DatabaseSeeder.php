@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(100)
             ->withPersonalTeam()
+            ->withBlogPosts()
             ->create();
     }
 }

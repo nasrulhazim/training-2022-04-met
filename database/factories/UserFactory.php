@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -64,6 +65,17 @@ class UserFactory extends Factory
                     return ['name' => $user->name.'\'s Team', 'user_id' => $user->id, 'personal_team' => true];
                 }),
             'ownedTeams'
+        );
+    }
+
+    public function withBlogPosts()
+    {
+        return $this->has(
+            Post::factory($this->faker->randomDigitNotZero())
+                ->state(function (array $attributes, User $user) {
+                    return ['user_id' => $user->id ,'is_published' => $this->faker->boolean()];
+                }),
+            'posts'
         );
     }
 }
