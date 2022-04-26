@@ -14,13 +14,20 @@
                         Title
                     </x-table.th>
                     <x-table.th>
+                        Owner
+                    </x-table.th>
+                    <x-table.th>
 
                     </x-table.th>
                 </x-slot:header>
                 @foreach ($posts as $post)
+                {{-- @php $post->load('user') @endphp --}}
                     <tr>
                         <x-table.td>
                             {{ $post->title }}
+                        </x-table.td>
+                        <x-table.td>
+                            {{ $post->user->name }}
                         </x-table.td>
                         <x-table.td>
                             <div class="inline-flex">
