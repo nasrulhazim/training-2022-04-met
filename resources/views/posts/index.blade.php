@@ -34,9 +34,12 @@
                                 <a class="px-2 hover:text-indigo-600" href="{{ route('posts.show', $post) }}">
                                     Details
                                 </a>
+                                @can('update', $post)
                                 <a class="px-2 hover:text-indigo-600" href="{{ route('posts.edit', $post) }}">
                                     Edit
                                 </a>
+                                @endcan
+                                @can('delete', $post)
                                 <form method="POST" action="{{ route('posts.destroy', $post) }}" class="hover:text-red-600">
                                     @csrf @method('DELETE')
 
@@ -46,6 +49,7 @@
                                         }
                                     ">Delete</a>
                                 </form>
+                                @endcan
                             </div>
                         </x-table.td>
                     </tr>
