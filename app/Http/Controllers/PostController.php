@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Auth\Access\Gate;
 
 class PostController extends Controller
 {
@@ -68,6 +69,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
+
         return view('posts.edit', compact('post'));
     }
 
@@ -79,7 +82,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePostRequest $request, Post $post)
-    {
+    {   
+        $this->authorize('update', $post);
+
         $post->update($request->only('title', 'content'));
 
         session()->flash('message', 'Post successfuly updated');

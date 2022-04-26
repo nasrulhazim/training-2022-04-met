@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class PostPolicy
 {
@@ -53,7 +54,9 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return auth()->user();
+        return auth()->user()->id === $post->user_id 
+            ? Response::allow()
+            : Response::deny('You do own this post to do the update.');
     }
 
     /**
@@ -65,7 +68,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return auth()->user();
+        return auth()->user()->id == $post->user_id;
     }
 
     /**
